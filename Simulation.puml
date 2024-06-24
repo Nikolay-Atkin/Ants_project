@@ -1,0 +1,86 @@
+@startuml Simulation
+set namespaceSeparator none
+class "anthill.Anthill" as anthill.Anthill {
+  count_eat_larva : int
+  count_leaf : int
+  list_Leaf : list
+  list_ants : list
+  list_branch : list
+  list_death : list
+  list_larva : list
+  list_male_ant : list
+  list_room : list
+  list_tree : list
+  list_worker_anthill : list
+  list_worker_ants : list
+  mushroom
+  queen : int
+  size : int
+  tree
+  x : int
+  y : int
+  count_Leaf()
+  {abstract}update()
+}
+class "ants.Ant" as ants.Ant {
+  age : int
+  alive : int
+  anthill
+  condition : int
+  point : str
+  size : int
+  x
+  x_
+  x_home
+  y
+  y_
+  y_home
+  death()
+  eat()
+  go_Home()
+  {abstract}move()
+  {abstract}update()
+}
+class "ants.Queen" as ants.Queen {
+  age
+  breed : bool
+  starvation : bool
+  eat()
+  lay_an_egg()
+  update()
+}
+class "mushroom.Mushroom" as mushroom.Mushroom {
+  list_leaf : list
+  size
+  grow()
+  update()
+}
+class "simulation.Simulation" as simulation.Simulation {
+  anthill
+  mushroom
+  screen
+  time : int
+  build_anthill()
+  count_ants()
+  count_branch()
+  create_ants()
+  create_tree()
+  death_ants()
+  draw()
+  draw_ants()
+  draw_text(text, x, y)
+  draw_tree()
+  eat_()
+  go_home()
+  go_trees()
+  grow_ants()
+  simulate()
+  to_grow_a_mushroom()
+  update()
+}
+ants.Queen --|> ants.Ant
+anthill.Anthill --* simulation.Simulation : anthill
+ants.Queen --* anthill.Anthill : queen
+mushroom.Mushroom --* anthill.Anthill : mushroom
+mushroom.Mushroom --* simulation.Simulation : mushroom
+@enduml

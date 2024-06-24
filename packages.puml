@@ -1,0 +1,24 @@
+@startuml packages
+set namespaceSeparator none
+package "src" as src {
+}
+package "src.anthill" as src.anthill {
+}
+package "src.ants" as src.ants {
+}
+package "src.cargo" as src.cargo {
+}
+package "src.mushroom" as src.mushroom {
+}
+package "src.simulation" as src.simulation {
+}
+package "src.trees" as src.trees {
+}
+src.anthill --> src.mushroom
+src.ants --> src.cargo
+src.ants --> src.trees
+src.simulation --> src.anthill
+src.simulation --> src.ants
+src.simulation --> src.mushroom
+src.simulation --> src.trees
+@enduml

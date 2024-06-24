@@ -1,0 +1,14 @@
+Index: src/trees.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/trees.py b/src/trees.py
+new file mode 100644
+--- /dev/null	(date 1716361786128)
++++ b/src/trees.py	(date 1716361786128)
+@@ -0,0 +1,4 @@
++class Tree:
++    def __init__(self,x,y):
++        self.x = x
++        self.y = y

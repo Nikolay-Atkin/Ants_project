@@ -1,0 +1,145 @@
+@startuml classes
+set namespaceSeparator none
+class "Ant" as src.ants.Ant {
+  age : int
+  alive : int
+  anthill
+  condition : int
+  point : str
+  size : int
+  x
+  x_
+  x_home
+  y
+  y_
+  y_home
+  death()
+  eat()
+  go_Home()
+  {abstract}move()
+  {abstract}update()
+}
+class "Ant_death" as src.ants.Ant_death {
+  size
+  x
+  y
+}
+class "Anthill" as src.anthill.Anthill {
+  count_eat_larva : int
+  count_leaf : int
+  list_Leaf : list
+  list_ants : list
+  list_branch : list
+  list_death : list
+  list_larva : list
+  list_male_ant : list
+  list_room : list
+  list_tree : list
+  list_worker_anthill : list
+  list_worker_ants : list
+  mushroom
+  queen : int
+  size : int
+  tree
+  x : int
+  y : int
+  count_Leaf()
+  {abstract}update()
+}
+class "Branch" as src.cargo.Branch {
+  name : str
+  size
+}
+class "Larva" as src.ants.Larva {
+  age : int
+  anthill
+  size : int
+  eat()
+  transformation()
+  update()
+}
+class "Leaf" as src.cargo.Leaf {
+  name : str
+  size
+}
+class "Male_Ant" as src.ants.Male_Ant {
+  wings : bool
+  breed()
+  {abstract}update()
+}
+class "Mushroom" as src.mushroom.Mushroom {
+  list_leaf : list
+  size
+  grow()
+  update()
+}
+class "Queen" as src.ants.Queen {
+  age
+  breed : bool
+  starvation : bool
+  eat()
+  lay_an_egg()
+  update()
+}
+class "Simulation" as src.simulation.Simulation {
+  anthill
+  mushroom
+  screen
+  time : int
+  build_anthill()
+  count_ants()
+  count_branch()
+  create_ants()
+  create_tree()
+  death_ants()
+  draw()
+  draw_ants()
+  draw_text(text, x, y)
+  draw_tree()
+  eat_()
+  go_home()
+  go_trees()
+  grow_ants()
+  simulate()
+  to_grow_a_mushroom()
+  update()
+}
+class "Soldier" as src.ants.Soldier {
+  age
+  update()
+}
+class "Tree" as src.trees.Tree {
+  x
+  y
+}
+class "Worker" as src.ants.Worker {
+  age
+  cargo : NoneType
+  number
+  point : str
+  size : int
+  tree
+  x
+  x_
+  x_home
+  y
+  y_
+  y_home
+  append_leaf()
+  build_an_anthill()
+  collect_branch()
+  collect_leaves()
+  draw()
+  go_Home()
+  go_to_tree()
+  grow_mushroom()
+  put_branch()
+  put_cargo()
+  to_grow_larva()
+  update()
+}
+src.ants.Male_Ant --|> src.ants.Ant
+src.ants.Queen --|> src.ants.Ant
+src.ants.Soldier --|> src.ants.Ant
+src.ants.Worker --|> src.ants.Ant
+@enduml
